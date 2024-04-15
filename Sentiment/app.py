@@ -159,9 +159,7 @@ print(best_model_test_accuracy)
 best_model = models[best_model_name]
 filename = 'best_train_model.pkl'
 pickle.dump(best_model, open(filename, 'wb'))
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def single():
