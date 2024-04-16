@@ -17,6 +17,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pickle
+import matplotlib.pyplot as plt
 
 app= Flask(__name__)
 
@@ -147,6 +148,7 @@ for name, model in models.items():
     print(test_conf_matrix)
     print()
 
+test_accuracies = [accur[model][1] for model in models]
 print("Accuracies : ",accuracies)
 print("Accur :",accur)
 # Find the model with the highest test accuracy
@@ -159,6 +161,16 @@ print(best_model_test_accuracy)
 best_model = models[best_model_name]
 filename = 'best_train_model.pkl'
 pickle.dump(best_model, open(filename, 'wb'))
+plt.figure(figsize=(10, 6))
+plt.bar(models.keys(), test_accuracies, color='skyblue')
+plt.xlabel('Models')
+plt.ylabel('Test Accuracy')
+plt.title('Comparison of Test Accuracies of Different Models')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+# Save the plot as an image file
+plt.savefig('static/model.png')
 
 
 @app.route('/', methods=['GET', 'POST'])
