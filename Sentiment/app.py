@@ -171,6 +171,19 @@ plt.tight_layout()
 
 # Save the plot as an image file
 plt.savefig('static/model.png')
+# List to store training accuracies
+train_accuracies = [accur[model][0] for model in models]
+
+plt.figure(figsize=(10, 6))
+plt.bar(models.keys(), train_accuracies, color='lightgreen')
+plt.xlabel('Models')
+plt.ylabel('Training Accuracy')
+plt.title('Comparison of Training Accuracies of Different Models')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+# Save the plot as an image file
+plt.savefig('static/training_model.png')
 
 
 @app.route('/', methods=['GET', 'POST'])
