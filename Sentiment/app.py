@@ -139,9 +139,9 @@ for name, model in models.items():
     accuracies.append((name, train_accuracy, test_accuracy))
     accur[name] = (train_accuracy, test_accuracy)
 
-    print(f"Model: {name}")
-    print(f"Train Accuracy: {train_accuracy}")
-    print(f"Test Accuracy: {test_accuracy}")
+    print(f"Model Name : {name}")
+    print(f"Train Accuracy : {train_accuracy}")
+    print(f"Test Accuracy : {test_accuracy}")
     print("Confusion Matrix (Train):")
     print(train_conf_matrix)
     print("Confusion Matrix (Test):")
@@ -150,12 +150,12 @@ for name, model in models.items():
 
 test_accuracies = [accur[model][1] for model in models]
 print("Accuracies : ",accuracies)
-print("Accur :",accur)
+print("Accuracy :",accur)
 # Find the model with the highest test accuracy
 best_model_name = max(accur, key=lambda k: accur[k][0])
 best_model_train_accuracy = accur[best_model_name][0]
 best_model_test_accuracy = accur[best_model_name][1]
-print("BMN",best_model_name)
+print("Best Model Name : ",best_model_name)
 print(best_model_train_accuracy)
 print(best_model_test_accuracy)
 best_model = models[best_model_name]
@@ -219,6 +219,7 @@ def single():
 
         # Take the absolute value of the polarity score
         polarity = abs(polarity)
+        # Confidence level associated with the sentiment prediction made by the sentiment analysis model
         conf = polarity * 100
             
         print("Polarity:", polarity * 100)

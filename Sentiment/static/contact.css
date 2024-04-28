@@ -13,7 +13,7 @@
 body {
     font-family: "Open Sans", sans-serif;
     color: #272829;
-    overflow: hidden;
+    overflow-x: hidden;
   }
   
   a {
@@ -433,9 +433,7 @@ body {
       backdrop-filter: none;
     }
   }
-  .team-member:hover {
-    cursor: grab;
-  }
+ 
   .team-member-avatar {
     width: 3.75rem;
     height: 3.75rem;

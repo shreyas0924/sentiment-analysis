@@ -382,6 +382,7 @@ textarea{
   border-radius: 5px;
   resize: vertical;
   margin-bottom: 15px;
+  max-height: 70%;
 }
 
 .bubbly-button {
